@@ -45,17 +45,12 @@ def set_params(ti,**kwargs):
     if 'SourceCSV' in kwargs['dag_run'].conf:
         SourceCSV = kwargs['dag_run'].conf['SourceCSV']
     else:
-        SourceCSV = "skt_mart.csv"
+        SourceCSV = "table1.csv"
 
     if 'TargetTable' in kwargs['dag_run'].conf:
         TargetTable = kwargs['dag_run'].conf['TargetTable']
     else:
-        TargetTable = "skt_mart"
-
-    if 'TargetTable' in kwargs['dag_run'].conf:
-        TargetTable = kwargs['dag_run'].conf['TargetTable']
-    else:
-        TargetTable = "skt_mart"
+        TargetTable = "table1"
     
     ti.xcom_push(key='SourceCSV', value=SourceCSV)
     ti.xcom_push(key='TargetTable', value=TargetTable)
